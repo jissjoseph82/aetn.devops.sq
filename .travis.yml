@@ -1,0 +1,25 @@
+language: java
+  
+addons:
+  sonarqube: true
+  
+sudo: required
+
+env:
+secure: "O22oxSd+56CMjG9kXYA7M3LxTdJzglEgsgPMOHrhTvK7H+wIWERf2ZhtG/LJ538EJgNg0ZLEIS0VO80Lukt7OgbK4ZDlViLU+9gQR6L2qAoyAL6c5h3m03+ONRGf7gFPf7d2RGZcXIgZtPAqTZUIjlk8AKvlhYm2my8OSQT2RIBR/TlYxd76XC5h0ehaS5vtjVM4tmwcVE9BVrKKxi0YV1LluyxIbV9dkY0gTYyjGKQKH8iv4tF4LZiNWu556vVk/RMs/OMM9bmB8kX1E+mjHfpCR6Y0hz+no+j6v8wGuCzb7mNfDK0joA63pase0UK0ZV4GlM7SDLEP318wmI3yDfLvOJuAesMAZiCLuNQErtqALA7FavTYxKiHbMS43nJqaXjcqw7hYSyFzGowtC71etmFXkqq5kL5TuUCWYJTVIJm/WtXPcnND8gc3enFsFDLXNBGWFU1tCqlABof7ZDQGh2T63PiJkkcwcGu1Qcdzxru9PxdyMjM/GU+jArHRkbD9xEUrr+wpZk5bq4NcK6wrdbjSZ0fw1n7qwC0ZbI45AZewbPsj3yVgIfjT3z33CARSo8Dq1Wh2WIoOTUd2kFQX1HNXCmxIJLQ2qJkuQo4Uo4gzsvLECQVlYm63LanH9EjRdWEKwCuMt6l/M+lNynSKApljoQG6eVvSqJj8Up7CI8="
+
+before_script:
+  - chmod +x tools/sonar-scanner.sh
+
+jdk:
+  - oraclejdk8
+
+install: true
+
+script:
+  - sudo apt-get update && sudo apt-get install oracle-java8-installer
+  - java -version  
+  
+
+script: 
+  - tools/sonar-scanner.sh  
